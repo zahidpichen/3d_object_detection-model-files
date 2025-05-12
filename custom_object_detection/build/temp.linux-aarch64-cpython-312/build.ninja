@@ -1,0 +1,38 @@
+ninja_required_version = 1.3
+cxx = c++
+nvcc = /usr/local/cuda/bin/nvcc
+
+cflags = -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -fPIC -I/opt/venv/lib/python3.12/site-packages/torch/include -I/opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/opt/venv/include -I/usr/include/python3.12 -c
+post_cflags = -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1018"' -DTORCH_EXTENSION_NAME=ingroup_inds_cuda -std=c++17
+cuda_cflags = -I/opt/venv/lib/python3.12/site-packages/torch/include -I/opt/venv/lib/python3.12/site-packages/torch/include/torch/csrc/api/include -I/usr/local/cuda/include -I/opt/venv/include -I/usr/include/python3.12 -c
+cuda_post_cflags = -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1018"' -DTORCH_EXTENSION_NAME=ingroup_inds_cuda -gencode=arch=compute_87,code=sm_87 -std=c++17
+cuda_dlink_post_cflags = 
+sycl_dlink_post_cflags = 
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+rule cuda_compile
+  depfile = $out.d
+  deps = gcc
+  command = $nvcc --generate-dependencies-with-compile --dependency-output $out.d $cuda_cflags -c $in -o $out $cuda_post_cflags
+
+
+
+
+
+
+
+build /workspace/custom_object_detection/build/temp.linux-aarch64-cpython-312/pcdet/ops/ingroup_inds/src/ingroup_inds.o: compile /workspace/custom_object_detection/pcdet/ops/ingroup_inds/src/ingroup_inds.cpp
+build /workspace/custom_object_detection/build/temp.linux-aarch64-cpython-312/pcdet/ops/ingroup_inds/src/ingroup_inds_kernel.o: cuda_compile /workspace/custom_object_detection/pcdet/ops/ingroup_inds/src/ingroup_inds_kernel.cu
+
+
+
+
+
+
+
+

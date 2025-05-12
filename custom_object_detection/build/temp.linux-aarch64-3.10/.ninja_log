@@ -1,0 +1,9 @@
+# ninja log v5
+1	11478	1746517641526507493	/home/abhi/Downloads/livox_object_detection/custom_object_detection/build/temp.linux-aarch64-3.10/pcdet/ops/iou3d_nms/src/iou3d_nms_kernel.o	acf5f54fe00c1789
+0	90528	1746517720477072791	/home/abhi/Downloads/livox_object_detection/custom_object_detection/build/temp.linux-aarch64-3.10/pcdet/ops/iou3d_nms/src/iou3d_cpu.o	8f2f0d2eec7407d4
+1	93691	1746517723661176274	/home/abhi/Downloads/livox_object_detection/custom_object_detection/build/temp.linux-aarch64-3.10/pcdet/ops/iou3d_nms/src/iou3d_nms_api.o	c5f8719998d95b95
+1	107930	1746517737897638977	/home/abhi/Downloads/livox_object_detection/custom_object_detection/build/temp.linux-aarch64-3.10/pcdet/ops/iou3d_nms/src/iou3d_nms.o	cceacc958e533d28
+12	4297	1746517744549855194	/home/abhi/Downloads/livox_object_detection/custom_object_detection/build/temp.linux-aarch64-3.10/pcdet/ops/roiaware_pool3d/src/roiaware_pool3d_kernel.o	1c60bde784f78efe
+11	80023	1746517820200314546	/home/abhi/Downloads/livox_object_detection/custom_object_detection/build/temp.linux-aarch64-3.10/pcdet/ops/roiaware_pool3d/src/roiaware_pool3d.o	68a86261ecc0f423
+11	2583	1746517824188444221	/home/abhi/Downloads/livox_object_detection/custom_object_detection/build/temp.linux-aarch64-3.10/pcdet/ops/roipoint_pool3d/src/roipoint_pool3d_kernel.o	8736dd8d5dafb06b
+11	77166	1746517896714802805	/home/abhi/Downloads/livox_object_detection/custom_object_detection/build/temp.linux-aarch64-3.10/pcdet/ops/roipoint_pool3d/src/roipoint_pool3d.o	2e81fb8f19b92a

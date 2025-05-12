@@ -1,0 +1,6 @@
+tensorboardX
+easydict
+scikit-image
+SharedArray
+opencv-python
+pyquaternion
