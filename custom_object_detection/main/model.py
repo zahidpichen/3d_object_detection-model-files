@@ -3,9 +3,9 @@ from pathlib import Path
 import numpy as np
 import torch
 import logging
-from pcdet_m.config import cfg, cfg_from_yaml_file
-from pcdet_m.datasets import DatasetTemplate
-from pcdet_m.models import build_network, load_data_to_gpu
+from pcdet.config import cfg, cfg_from_yaml_file
+from pcdet.datasets import DatasetTemplate
+from pcdet.models import build_network, load_data_to_gpu
 
 class DemoDataset(DatasetTemplate):
     def __init__(self, dataset_cfg, class_names, training=True, root_path=None, logger=None, ext='.bin'):
